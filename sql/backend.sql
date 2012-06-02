@@ -17,7 +17,7 @@ CREATE TABLE  UserTbl
 
 CREATE TABLE  GroupTbl
 (
-    GroupID  integer unsigned primary key,    
+    GroupID  integer unsigned AUTO_INCREMENT primary key,    
     Area varchar(30) NOT NULL,
     Description varchar(100)
 );
