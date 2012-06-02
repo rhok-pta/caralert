@@ -1,0 +1,42 @@
+<form method="POST" action="index.php">
+	<fieldset>
+		<h3>Add User</h3>
+		<div id="adduser">
+			<label>Username: </label> <input id="username" type="text" name="username" /><br />
+			<label>Password: </label> <input id="password" type="text" name="password" /><br />
+			<label>First Name: </label> <input id="password" type="text" name="password" /><br />
+			<label>Surname: </label> <input id="password" type="text" name="password" /><br />
+			<label>Cell Number: </label> <input id="password" type="text" name="password" /><br />
+			<label>Role: </label> 
+			<select name="role">
+				<option value="user">User</option>
+				<option value="moderator">Moderator</option>
+				<option value="admin">Admin</option>
+			</select><br />
+			<input id="action" type="hidden" name="action" value="adduser" /><br />
+			<input id="submit" type="submit" name="submit" /><br />
+		</div>
+	</fieldset>
+</form>
+
+<!-- List users -->
+<form method="POST" action="index.php">
+	<fieldset>
+		<h3>List Users</h3>
+		<div id="listincident">
+			<table class='table table-bordered table-striped' >
+                <thead>
+                <tr>
+                    <th>License Plate</th>
+                    <th>Make/model</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody>
+				
+				</tbody>
+			</table>
+		</div>
+	</fieldset>
+</form>
