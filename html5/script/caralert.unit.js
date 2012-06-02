@@ -11,7 +11,7 @@ function testRetrieveData() {
 
    function run() {
        CA.nukeDB(function(){
-             CA.getDocument('test/test.data',doTest, doFail)
+             CA.getDocument('test.data',doTest, doFail)
         })
    }
    this.run = run
@@ -33,7 +33,7 @@ function testSearchData() {
    }
    function run() {
        CA.nukeDB(function(){
-             CA.getDocument('test/test.data',doTest, doFail)
+             CA.getDocument('test.data',doTest, doFail)
         })
    }
    this.run = run

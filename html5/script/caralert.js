@@ -33,7 +33,7 @@ var CA = new function() {
                        function saveIt(){
                            if(index<result.length) { 
                               result[index].key = index
-                              result[index].searchKey = result[index].CarRegNo+ ' ' +result[index].CarColor + ' ' +result[index].CarMakeModel+' ' +result[index].IncDesc
+                              result[index].searchKey = result[index].CarRegNo.toLowerCase()+ ' ' +result[index].CarColor.toLowerCase() + ' ' +result[index].CarMakeModel.toLowerCase()+' ' +result[index].IncDesc.toLowerCase()
                               index++
                               store.save( result[index-1], saveIt)
                            } else {
