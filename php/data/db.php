@@ -1,18 +1,14 @@
 <?php
-
+error_reporting(0);
 global $connection, $dns, $pdo;
 
-/*
-
-if ($db->getAttribute(PDO::ATTR_DRIVER_NAME) == 'mysql') {
-    $stmt = $db->prepare('select * from foo', array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => true));
-} else {
-    die("connected to mysql data");
-}
-*/
-
 $yaml_file = dirname (__FILE__) . '/connection.yaml';
-$connection = yaml_parse_file($yaml_file);
+//$connection = yaml_parse_file($yaml_file);
+$connection = array('db_host' => 'localhost',
+				    'db_name' => 'caralert',
+					'db_user' => 'root',
+					'db_pass' => '',
+					);
 
 
 try {
@@ -69,7 +65,31 @@ function list_incident(){
   return $result;
 }
 
-function get_user(){
+function add_user($username, $password, $firstname, $surname, $cellnumber){	
+  global $dbh;
+  $query = "CALL User_Insert_byPK({$username},{$password},{$firstname},{$surname},{$cellnumber});";
+  $sth = $dbh->prepare($query);
+  $sth->execute();
+  $result = $sth->fetch();
+  return $result;
+}
+
+function add_group($area, $description){	
+  global $dbh;
+  $query = "CALL Group_Insert_byPK({$area},{$description});"; 
+  $sth = $dbh->prepare($query);
+  $sth->execute();
+  $result = $sth->fetch();
+  return $result;
+}
+
+function add_incident($user_id, $registration_no, $color, $makemodel, $description, $group_id){	
+  global $dbh;
+  $query = "CALL Incident_Insert_byPK({$user_id},{$registration_no},{$color},{$makemodel},{$description},now(), {$group_id});"; ,);
+  $sth = $dbh->prepare($query);
+  $sth->execute();
+  $result = $sth->fetch();
+  return $result;	
 }
 
 
@@ -87,4 +107,52 @@ function count_user_group(){
 
 function count_incident(){
   return count(list_incident());
+}
+
+
+/**
+ * sanitize data
+ */
+function sanitize($data){
+  foreach ($data as $key => $input){
+    if (!is_array($input)){
+      $clean[$key] = check_plain($input);
+    } else {
+      $clean[$key] = sanitize($input);
+    }
+  }
+  return $clean;
+}
+
+/**
+ * clean data
+ */
+function clean(&$data){
+  foreach($data as $key => $post){
+    if (is_array($post)){
+      clean($post);
+    } else {
+      $clean[$key] = strip_tags(clean_sql($post));
+    }
+  }
+  $data = $clean;
+}
+
+function clean_post($data){
+  return sanitize($data);
+}
+
+function clean_sql($data){
+  return mysql_real_escape_string($data);
+}
+
+function check_plain($text){
+  return htmlspecialchars($text, ENT_QUOTES, 'UTF-8');
+}
+
+function json_output($json){
+  if ($json != 'false'){
+    header('Content: application/json');
+    echo $json;
+  }
 }
