@@ -30,15 +30,18 @@ CREATE TABLE  UserGroupTbl
     FOREIGN KEY (GroupID) REFERENCES GroupTbl (GroupID) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
+-- Group is a proxy for Area
 CREATE TABLE  IncidentTbl
 (
     IncID integer Unsigned Auto_Increment primary key,
-    UserId integer unsigned NOT NULL,
+    UserID integer unsigned NOT NULL,
+    GroupID integer unsigned NOT NULL,
     CarRegNo  varchar(10),
     CarColor varchar(30),
     CarMakeModel varchar(30),
     IncDesc varchar(100),
     IncDate dateTime NOT NULL,
-    FOREIGN KEY (UserID) REFERENCES UserTbl (UserID) ON UPDATE CASCADE,
+    FOREIGN KEY (UserID) REFERENCES UserTbl (UserID) ON UPDATE CASCADE ON DELETE RESTRICT,
+    FOREIGN KEY (GroupID) REFERENCES GroupTbl (GroupID) ON UPDATE CASCADE ON DELETE RESTRICT,
     KEY idx_CarRegNo (CarRegNo)
 );
