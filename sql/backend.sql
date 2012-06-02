@@ -12,7 +12,7 @@ CREATE TABLE  UserTbl
     CellNumber Varchar(10),
     Role SET('user','moderator','admin') NOT NULL DEFAULT 'user',
     UNIQUE (UserName),
-    KEY idx_username (username)
+    KEY idx_username (UserName)
 );
 
 CREATE TABLE  GroupTbl
