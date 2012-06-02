@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>QUnit Test Suite</title>
+	<link rel="stylesheet" href="script/qunit/qunit.css">
+<script src="script/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="script/lawnchair/Lawnchair.js" type="text/javascript"></script>
+<script src="script/lawnchair/adapters/webkit-sqlite.js"></script>
+<script src="script/lawnchair/adapters/dom.js"></script>
+<script src="script/caralert.js" type="text/javascript"></script>
+<script src="script/caralert.unit.js" type="text/javascript"></script>
+<script src="script/qunit/qunit.js"></script>
+
+    <script type="text/javascript">
+        module("Car Alert");
+        asyncTest("Test retrieve data",1, new testRetrieveData().run);
+    </script>
+</head>
+<body>
+	<div id="qunit"></div>
+	<div id="qunit-fixture">test markup</div>
+</body>
+</html>
