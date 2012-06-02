@@ -6,20 +6,18 @@ $action = $_POST['action'];
 switch($action){
 	case 'adduser':
 		include_once 'user.html';
-		//break;
+		break;
 	case 'addgroup':
 		include_once 'group.html';
-		//break;
+		break;
 	case 'addincident':
 		include_once 'incident.html';
-		//break;
+		break;
 		
 	default:
-		include_once 'user.html';
-		include_once 'group.html';
-		include_once 'incident.html';
+
 		include_once 'login.html';
-		//break;
+		break;
 }
 ?>
 
