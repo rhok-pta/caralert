@@ -7,10 +7,9 @@ var CA = new function() {
       this.isStoreReady = isStoreReady
 
       
-    function getDocument(callback, failback) {
+    function getDocument(url,callback, failback) {
         $.ajax({
-            //url: '_show/xmlmessage/'+messageid,
-            url: 'test.data',
+            url: url,
             type: "GET",
             data: "",
             contentType: "application/json",
@@ -28,12 +27,42 @@ var CA = new function() {
 	        failback("FAILED : " + result.status + ' ' + result.statusText);
           }
        }
-       function AjaxCallback(result) {            
-              alert(result)
-              callback(result)
- 
+       function AjaxCallback(result) {  
+              var index = 0          
+              store.nuke(function(){                       
+                       function saveIt(){
+                           if(index<result.length) { 
+                              result[index].key = index
+                              result[index].searchKey = result[index].CarRegNo.toLowerCase()+ ' ' +result[index].CarColor.toLowerCase() + ' ' +result[index].CarMakeModel.toLowerCase()+' ' +result[index].IncDesc.toLowerCase()
+                              index++
+                              store.save( result[index-1], saveIt)
+                           } else {
+                              callback(index)
+                           }  
+                        }
+                        saveIt()  
+                  }) 
        }    
     }
     this.getDocument = getDocument 
+
+
+    function nukeDB(callback){
+        store.nuke(callback)
+    }
+    this.nukeDB = nukeDB
+
+    function find(searchStr, callback){
+       var foundArr = new Array()
+       store.all(function(allArr) {
+            for(var i=0; i<allArr.length; i++){
+                 if(allArr[i].searchKey.indexOf(searchStr)>=0) {
+                     foundArr.push(allArr[i])
+                 }
+            }
+            callback(foundArr)
+       })
+    }
+    this.find = find
 
 }
