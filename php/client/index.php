@@ -1,8 +1,8 @@
+<?php
+
+?>
 <!DOCTYPE html>
-<!--manifest="offline.manifest"-->
-
-
-<html lang="en" >
+<html lang="en" manifest="offline.manifest">
 <head>
 	<meta charset="utf-8">
    	<title>Car Alert</title>
@@ -23,7 +23,7 @@
                     alert("Could not update - failed with:"+error)
                 }
                 if (navigator.onLine) {
-                    CA.getDocument('http://localhost/caralert/test/test.data',doSuccess, doFail)
+                    CA.getDocument('http://localhost/caralertphp/index.php?q=list_incident',doSuccess, doFail)
                 } else {
                     alert("Not online");
                 }
@@ -72,64 +72,34 @@
 
         <link href="css/bootstrap-responsive.css" rel="stylesheet">
 
-        <style type="text/css">
-<!--
-.style3 {
-	font-family: "MisterEarl BT";
-	font-size: 36px;
-	color: #000000;
-}
-.style4 {
-	font-size: 36px
-}
-.style5 {color: #FF0000}
--->
-        </style>
 </head>
 
 <body>
-<div class="navbar navbar-fixed-top">
+  <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-          <span class="icon-bar"></span>        </a>
-        <a class="brand" href="#"></a><a class="brand" href="#">Car Alert</a>
-<ul class="nav">
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="#">Car Alert</a>
+          <ul class="nav">
             <li><a href="javascript:refresh()">Refresh</a></li>
-           
-        </ul>
-           <div class="btn-group pull-right">
-            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-              <i class="icon-user"></i> Username
-              <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Profile</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Sign Out</a></li>
-            </ul>
-          </div>
-           <p>&nbsp;</p>
+          </ul>
       </div>
-      
-  </div>
+    </div>
   </div>
   
 <div class="container">
 
   <div class="hero-unit">
-    <h2><img src="img/CarAlert.gif" height="101"></h2>
-    
-    <h3 align="left" class="alert-block style3 style4">Use Car <span class="style5">Alert!</span></h3>
-    
-    <div align="left">
-      <span class="alert-block style3">
-      <!-- <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p> -->
-      <input id="searchText" onKeyUp="javascript:doSearch(this.value);" class="span11"/>
-    </span> </div>
-    <div id="result"></div>
+    <h2>Use Car Alert!</h2>
+    <!-- <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p> -->
+    <input id="searchText" onkeyup="javascript:doSearch(this.value);" class="span11"/>
+	<div id="result"></div>
+
+
   </div>
 
 </div>
