@@ -18,7 +18,7 @@ script/lawnchair/plugins/callbacks.js
 script/lawnchair/plugins/query.js
 script/caralert.js
 script/caralert.unit.js
-index.html
+index.php
 
 NETWORK:
 ../index.php
