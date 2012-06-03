@@ -1,8 +1,9 @@
 <?php
+global $_GET;
 global $_POST;
-
+$_REQUEST = array_merge($_GET, $_POST);
 //var_dump($_POST);
-$action = $_POST['action'];
+$action = $_REQUEST['action'];
 switch($action){
 	case 'adduser':
 		include_once 'user.html';
