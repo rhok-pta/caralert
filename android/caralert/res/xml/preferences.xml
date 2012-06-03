@@ -1,0 +1,31 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	 
+    <PreferenceCategory android:title="Connection settings" >
+        <EditTextPreference
+            android:defaultValue="http://192.168.43.179/caralertphp/?q=list_incident"
+            android:key="URL"
+            android:summary="Server URL"
+            android:title="Server URL" />
+        <EditTextPreference
+            android:defaultValue="User Name"
+            android:key="NAME"
+            android:summary="User Name"
+            android:title="username" />
+
+        <EditTextPreference
+            android:defaultValue="10111"
+            android:key="PHONE_NO"
+            android:summary="Phone number"
+            android:title="phone_no" />
+
+        
+
+        <EditTextPreference
+            android:defaultValue="[Password]"
+            android:key="PASSWORD"
+            android:summary="Password"
+            android:title="password" 
+             />
+       
+    </PreferenceCategory>
+</PreferenceScreen>
