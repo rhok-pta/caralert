@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="hello">Search by Registration:</string>
-    <string name="app_name">CarAlert</string>
+    <string name="hello">Search</string>
+    <string name="app_name">Car Alert</string>
     <string name="reg_no">REG NO</string>
     <string name="car_maker">Maker</string>
     <string name="car_color">COLOR</string>
@@ -11,5 +11,6 @@
     <string name="settings_shortcut">Settings</string>
     <string name="settings_label">Settings</string>
     <string name="dail">Dial Police</string>
-
+    <string name="refresh_shortcut">Refresh</string>
+    <string name="refresh_label">Refresh</string>
 </resources>

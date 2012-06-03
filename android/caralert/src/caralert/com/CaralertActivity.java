@@ -225,6 +225,11 @@ public class CaralertActivity extends Activity {
 			startActivity(new Intent(this, PreferencesActivity.class));
 			return true;
 		}
+		
+		if (item.getItemId() == R.id.refresh) {
+			sync();
+			return true;
+		}
 		return false;
 	}
 }
