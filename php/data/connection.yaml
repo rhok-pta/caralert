@@ -1,4 +1,4 @@
 db_host: localhost
 db_name: caralert
-db_user: root
-db_pass:
+db_user: caralert
+db_pass: grindel
