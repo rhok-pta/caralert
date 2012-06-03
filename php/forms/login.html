@@ -1,13 +1,15 @@
 <div class="container">
   <div class="hero-unit">
+
     <h2><img src="img/CarAlert.gif" height="101"></h2>
-    <form method="POST" action="index.php">
+
+    <form method="GET" action="index.php">
       <fieldset>
 	<h2>Login</h2>
 	<div id="adduser">
 	  <label>Username: </label> <input id="username" type="text" name="username" /><br />
 	  <label>Password: </label> <input id="password" type="pasword" name="password" /><br />
-	  <input id="action" type="hidden" name="action" value="adduser" /><br />
+	  <input id="action" type="hidden" name="action" value="login" /><br />
 	  <input id="submit" type="submit" name="submit" /><br />
 	</div>
       </fieldset>

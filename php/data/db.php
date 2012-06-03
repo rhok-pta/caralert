@@ -6,8 +6,8 @@ $yaml_file = dirname (__FILE__) . '/connection.yaml';
 //$connection = yaml_parse_file($yaml_file);
 $connection = array('db_host' => 'localhost',
 				    'db_name' => 'caralert',
-					'db_user' => 'caralert',
-					'db_pass' => 'grindel',
+					'db_user' => 'root',
+					'db_pass' => '',
 					);
 
 
@@ -85,12 +85,33 @@ function add_group($area, $description){
 
 function add_incident($user_id, $registration_no, $color, $makemodel, $description, $group_id){	
   global $dbh;
-  $query = "CALL Incident_Insert_byPK({$user_id},{$registration_no},{$color},{$makemodel},{$description},now(), {$group_id});";
+  $now = 'now()';
+  $query = "CALL Incident_Insert_byPK('{$user_id}','{$registration_no}','{$color}','{$makemodel}','{$description}','{$now}', '{$group_id}');"; 
   $sth = $dbh->prepare($query);
   $sth->execute();
   $result = $sth->fetch();
+  
   return $result;	
 }
+
+function user_login($username, $password){
+	global $dbh;
+  $query = "SELECT * FROM UserTbl WHERE UserName = '{$username}' AND PassWord = '{$password}'";
+  $sth = $dbh->prepare($query);
+  $sth->execute();
+  $result = $sth->fetchAll();
+  return $result;		
+}
+
+function get_user($user_id){
+	global $dbh;
+  $query = "SELECT * FROM UserTbl WHERE UserID = '{$user_id}'";
+  $sth = $dbh->prepare($query);
+  $sth->execute();
+  $result = $sth->fetchAll();
+  return $result;		
+}
+
 
 
 function count_user(){
