@@ -10,13 +10,13 @@
             android:defaultValue="User Name"
             android:key="NAME"
             android:summary="User Name"
-            android:title="username" />
+            android:title="Username" />
 
         <EditTextPreference
             android:defaultValue="10111"
             android:key="PHONE_NO"
             android:summary="Phone number"
-            android:title="phone_no" />
+            android:title="Phone number" />
 
         
 
@@ -24,7 +24,7 @@
             android:defaultValue="[Password]"
             android:key="PASSWORD"
             android:summary="Password"
-            android:title="password" 
+            android:title="Password" 
              />
        
     </PreferenceCategory>
