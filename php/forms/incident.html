@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="hero-unit">
+    <form method="POST" action="index.php">
+      <fieldset>
+	<h3>Add Incident</h3>
+	<div id="adduser">
+	  <label>Car Registration: </label> <input id="registration" type="text" name="registration" /><br />
+	  <label>Car Color: </label> <input id="color" type="text" name="color" /><br />
+	  <label>Car Make/Model: </label> <input id="makemodel" type="text" name="makemodel" /><br />
+	  <label>Description: </label> <textarea rows="5" cols="25"></textarea><br />
+	  <input id="action" type="hidden" name="action" value="addincident" /><br />
+	  <input id="submit" type="submit" name="submit" /><br />
+	</div>
+      </fieldset>
+    </form>
+    
+    <!-- List incidents -->
+    <form method="POST" action="index.php">
+      <fieldset>
+	<h3>List Incident</h3>
+	<div id="listincident">
+	  <table class='table table-bordered table-striped' >
+            <thead>
+              <tr>
+                <th>License Plate</th>
+		<th>Color</th>
+                <th>Make/model</th>
+                <th>Description</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+	      <td><?php echo $var ?></td>
+	      <td><?php echo $var ?></td>
+	      <td><?php echo $var ?></td>
+	      <td><?php echo $var ?></td>
+	    </tbody>
+	  </table>
+	</div>
+      </fieldset>
+    </form>
+  </div>
+</div>
