@@ -1,3 +1,6 @@
 <?php
-header('Content: application/json');
-echo json_encode($data);
+
+global $data;
+
+$json = json_encode($data);
+json_output($json);
