@@ -6,8 +6,8 @@ $yaml_file = dirname (__FILE__) . '/connection.yaml';
 //$connection = yaml_parse_file($yaml_file);
 $connection = array('db_host' => 'localhost',
 				    'db_name' => 'caralert',
-					'db_user' => 'root',
-					'db_pass' => '',
+					'db_user' => 'caralert',
+					'db_pass' => 'grindel',
 					);
 
 

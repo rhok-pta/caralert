@@ -23,7 +23,7 @@
                     alert("Could not update - failed with:"+error)
                 }
                 if (navigator.onLine) {
-                    CA.getDocument('http://localhost/caralertphp/index.php?q=list_incident',doSuccess, doFail)
+                    CA.getDocument('../index.php?q=list_incident&json=true',doSuccess, doFail)
                 } else {
                     alert("Not online");
                 }
