@@ -1,6 +1,8 @@
 package caralert.com;
 import java.util.List;
 
+import caralert.com.R.string;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,9 +62,9 @@ public class AlertsAdapter  extends ArrayAdapter<car>{
         TextView color =(TextView)carView.findViewById(R.id.txtColor);
  
         //Assign the appropriate data from our alert object above
-        reg.setText(al.CarRegNo);
-        make.setText(al.CarMakeModel);
-        color.setText(al.CarColor);
+        reg.setText("Registration No. :  "+al.CarRegNo);
+        make.setText("Car Make              :  "+al.CarMakeModel);
+        color.setText("Car Color              :  "+al.CarColor);
         
         return carView;
     }
